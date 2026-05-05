@@ -39,7 +39,15 @@ SEGA PowerShell is a custom 16-bit executive kernel and multi-tasking simulated 
 | **Button C** | Execute / Unlock HexScanner Write Mode |
 | **START** | Exit Active Module / Return to Terminal |
 
-SEGA PowerShell for the Sega Mega Drive. (SGDk 2.11 is needed to use the files. NOT needed for the release file.)
+## How to Apply the IPS Patch
+If you prefer downloading the lightweight `.ips` distribution:
+1. Download `IpsPatch.ips` from the Releases tab.
+2. Open an IPS patching utility (e.g., Lunar IPS or an online patcher like Romhacking.net).
+3. Apply the `.ips` patch to your designated old Sega Genesis ROM version.
+4. Boot the newly patched file in your emulator of choice!
+
+SEGA PowerShell for the Sega Mega Drive. (SGDk 2.11 is needed to use the files. NOT
+needed for the release file.)
 
 (DO NOT PRESS START TO ENTER TETRIS!!! Instead, press A.)
 
