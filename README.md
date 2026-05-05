@@ -1,4 +1,4 @@
-# SEGA-OS-Genesis
+# SEGA-CMD-Genesis
 A custom 16-bit executive kernel for the Sega Genesis.
 
 SEGA OS is an original executive kernel and terminal environment developed for the Motorola 68000 architecture. Unlike a standard game, this project focuses on system-level utilities, hardware telemetry, and an integrated multitasking state machine, all running at the original hardware speed of 7.61MHz.
