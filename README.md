@@ -40,3 +40,5 @@ SEGA PowerShell is a custom 16-bit executive kernel and multi-tasking simulated 
 | **START** | Exit Active Module / Return to Terminal |
 
 SEGA PowerShell for the Sega Mega Drive. (SGDk 2.11 is needed to use the files. NOT needed for the release file.)
+
+(DO NOT PRESS START TO ENTER TETRIS!!! Instead, press A.)
