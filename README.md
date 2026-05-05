@@ -1,49 +1,42 @@
-# SEGA-CMD-Genesis
-A custom 16-bit executive kernel for the Sega Genesis.
+# SEGA PowerShell 
 
-SEGA OS is an original executive kernel and terminal environment developed for the Motorola 68000 architecture. Unlike a standard game, this project focuses on system-level utilities, hardware telemetry, and an integrated multitasking state machine, all running at the original hardware speed of 7.61MHz.
+**Version:** 7.0.0 (The Nuclear Update)  
+**Platform:** Sega Genesis / Mega Drive  
+**Architecture:** Motorola 68000 & Zilog Z80
+**Framework:** SGDK 2.11
 
----
+## Overview
+SEGA PowerShell is a custom 16-bit executive kernel and multi-tasking simulated environment built for original Sega Genesis hardware. It utilizes a highly optimized switch-case state machine, allowing seamless, zero-reset transitions between the command terminal and real-time utility modules.
 
-## 🚀 Key Features
-*   **H32 Optimized Display:** Custom narrow-mode scaling (256x224) to ensure UI stability across modern and CRT displays.
-*   **Live Telemetry:** Real-time CPU Load Meter and RAM monitoring utilizing VDP Plane B interleaving.
-*   **Integrated Task Manager:** Active process monitoring and system state tracking.
-*   **Utility Suite:** 
-    *   **CALC:** A full 16-bit decimal calculator with operator cycling.
-    *   **HEXSCAN:** A live memory peeker for scanning Work RAM (0xFF0000).
-    *   **PONG/SNAKE:** Optimized game modules with dirty-tile rendering for zero-flicker performance.
-*   **Pure 68k Logic:** Optimized C code using SGDK 2.11 with no heavy Z80 audio overhead for maximum bus stability.
+## Key Features
 
----
+* **Dual-Plane Interleaved UI:** System telemetry and the status bar are mapped to VDP Plane B, ensuring real-time CPU load tracking remains visible while applications render to VDP Plane A.
+* **Cinematic Boot Sequence:** Features a DMA-driven hardware palette fade synchronized with a 16kHz Mono PCM boot chant utilizing the XGM audio driver.
+* **Dynamic Memory Tracking:** The Task Manager polls SGDK's internal `MEM_getFree()` and `MEM_getAllocated()` functions to display Work RAM usage in real-time.
+* **Global Hardware Mute:** A system-wide audio panic switch (Button Z) designed to kill XGM and PSG channels instantly to prevent hardware lockups.
 
-## 🎮 Controls
-| Mode | Action | Input |
-| :--- | :--- | :--- |
-| **Terminal** | Navigate Commands | D-Pad Up/Down |
-| **Terminal** | Execute Command | Button A / Start |
-| **Calculator** | Edit Value A/B | Button A |
-| **Calculator** | Cycle Operator | Button B |
-| **Calculator** | **EXECUTE** | **Button C** |
-| **Global** | Return to Terminal | Start |
+## Integrated Modules
 
----
+* **1989 GHOST (Tetris):** A fully functional arcade engine featuring bitmask-based collision detection, line-clear combo scoring, and dynamic gravity leveling.
+* **Z80 Sound Lab:** A direct hardware interface for the SN76489 PSG chip. Allows users to manually tune pitch dividers and trigger test frequencies.
+* **HexScanner:** A real-time memory viewer with an unlockable Write Access mode (START + C) protected by safety boundaries.
+* **SNAKE & PONG:** Interactive modules demonstrating real-time controller polling and physics.
 
-## 🛠️ Technical Specifications
-*   **CPU:** Motorola 68000 (Primary)
-*   **Language:** C (SGDK 2.11 / GCC M68k)
-*   **Graphics:** 2-Plane VDP Logic (Plane A: Apps, Plane B: HUD)
-*   **Resolution:** 256 x 224 (Narrow H32)
+## Hardware Requirements
+* **Console:** Sega Genesis Model 1/2/3 or accurate clones.
+* **Controller:** **6-Button Arcade Pad is MANDATORY**.
+* **ROM Size:** ~128 KB.
 
----
+## Master Control Scheme
 
-## 📦 Building from Source
-To compile the project yourself, you will need the [SGDK](https://github.com/Stephane-D/SGDK) environment installed.
-1.  Place the project folder in your SGDK/projects directory.
-2.  Run `Build.bat`.
-3.  The compiled ROM will be located in `out/rom.bin`.
+| Input | Global Action |
+| :--- | :--- |
+| **D-Pad** | Navigate Menus / Adjust Values / Movement |
+| **Button A** | Execute Command / OSK Confirm |
+| **Button X** | Toggle On-Screen Keyboard (OSK) |
+| **Button Y** | Cycle OSK Layout (Alpha / Numeric / Hex) |
+| **Button Z** | **GLOBAL AUDIO PANIC (Mute all channels)** |
+| **Button C** | Execute / Unlock HexScanner Write Mode |
+| **START** | Exit Active Module / Return to Terminal |
 
----
-
-## 📄 License
-This project is released under the MIT License. (C) Sega Corp. 2026.
+SEGA PowerShell for the Sega Mega Drive
