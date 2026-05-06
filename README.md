@@ -25,6 +25,13 @@ The v7.0.1 update focuses on extreme hardware stability, cycle-accurate timing, 
 * **Kega Fusion / Hardware I/O Handshake Fix:** Implemented a 5-frame VBlank delay during the cold boot sequence. This forces cycle-accurate emulators (like Kega Fusion) to properly pulse the TH multiplexer pin, resolving the 3-button false-positive lockout bug.
 * **Dynamic Palette Matrices:** Overhauled the CRAM to support a global `opt_theme_idx` (Classic White vs. Cyan Mod) alongside hardcoded system palettes (PAL2 = Success Green, PAL3 = Warning Red).
 * **VRAM Memory Leak Sweeps:** Exit routines across all applications (especially `CREDITS`) now trigger explicit column sweeps to drop orphaned text tiles from Plane A before returning to the terminal.
+* **Display Revamps** Things like CALC, TASKS, and other things have had their details revamped.
+* **After characters** Ghost characters has now been fixed.
+
+* **6-Btn Requirement** You must now aquire a 6-Btn to use certain things.
+
+  * **SEGA Revamp** The SEGA Boot is now smoother, and faster.
+
 
 ---
 
