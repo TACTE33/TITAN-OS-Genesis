@@ -1,3 +1,5 @@
+(Note: "TITAN-CORE" name is discontinued".)
+
 # 💻 SEGA PowerShell (SPS) — Genesis/Mega Drive Kernel
 
 ![Version](https://img.shields.io/badge/Version-v7.0.1_MASTER-00f2ff?style=for-the-badge)
