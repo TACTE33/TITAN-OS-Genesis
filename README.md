@@ -1,4 +1,4 @@
-(Note: "TITAN-CORE" name is discontinued".)
+o(Note: "TITAN-CORE" name is discontinued".)
 
 # 💻 SEGA PowerShell (SPS) — Genesis/Mega Drive Kernel
 
@@ -145,22 +145,3 @@ This OS is built strictly using the **Sega Genesis Development Kit (SGDK)**.
 
 ---
 *SEGA and Sega Genesis are registered trademarks of Sega Corporation. This is an independent homebrew kernel architecture and is not affiliated with Sega.*
-
-## ⚠️ CRITICAL EMULATOR COMPATIBILITY WARNING: MD.emu
-
-If you are testing or running this operating system framework, **do NOT use MD.emu (especially its default USA/NTSC-U profile).** Under strict, low-level testing, MD.emu’s soft-reload and state-management pipelines suffer from severe **Dirty State Reset** failures. Because this kernel interacts directly with bare-metal hardware registers, a soft reload inside MD.emu will cause catastrophic virtual hardware desynchronization.
-
-### 🚫 Known MD.emu Glitches & Failures:
-* **Catastrophic Audio Lockup:** Reloading can cause a simultaneous VDP/Z80 bus collision, freezing the audio processor mid-cycle and resulting in a continuous, high-pitched audio screech.
-* **Memory Buffer Corruption:** Leftover stack variables fail to purge on reset, contaminating active registers and injecting massive, corrupted values into the `16.16 CORE` math engine variables.
-* **VDP Nametable Desync:** Uncleared VRAM segments spill directly into active plane drawing routines, causing background canvases to flood with garbage tile artifacts.
-* **Horizontal Mirroring (H-Flip Glitch):** Residual register data can trip Bit 11 of the VDP tile attributes, forcing the entire terminal interface to render completely mirrored backwards.
-* **Variable State Overlap:** Rogue memory leaks will randomly overwrite global theme configuration bytes, causing custom workspace modes (like the Cyan Mod) to force-activate on boot against your will.
-
-### 🌍 Why this Happens
-When forcing the emulator into **Japan (NTSC-J)** or **Europe (PAL)** regions, the emulator is forced to discard its entire global memory layout to change its internal hardware timing matrices (e.g., shifting to 50Hz clock rates). This action forces a *true* deep hardware purge, making the kernel boot perfectly. However, the default USA reload profile uses high-level emulation (HLE) shortcuts that leave the system state heavily contaminated.
-
-### 🏁 Recommended Testing Environments
-To experience the definitive, stable desktop environment as intended, please utilize one of the following alternatives:
-1. **Kega Fusion / MD XL:** For flawless, high-level structural verification and terminal execution.
-2. **Physical HDMI Clone Sticks (e.g., Vilcorn SG800):** Fully compatible with core terminal commands and live credits modules (though ensure continuous polling loops like `JOYTEST` are utilized to stabilize initial 6-button controller I/O handshakes).
