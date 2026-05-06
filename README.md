@@ -30,7 +30,9 @@ The v7.0.1 update focuses on extreme hardware stability, cycle-accurate timing, 
 
 * **6-Btn Requirement** You must now aquire a 6-Btn to use certain things.
 
-  * **SEGA Revamp** The SEGA Boot is now smoother, and faster.
+* **SEGA Revamp** The SEGA Boot is now smoother, and faster.
+
+* **The OTHER Updates...** There's so many other updates, that you might need to look at them yourself...
 
 
 ---
